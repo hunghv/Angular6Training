@@ -35381,6 +35381,7 @@
     <TypeScriptCompile Include="src\app\app.module.ts" />
     <TypeScriptCompile Include="src\app\core\hello-world\hello-world.component.spec.ts" />
     <TypeScriptCompile Include="src\app\core\hello-world\hello-world.component.ts" />
+    <TypeScriptCompile Include="src\app\core\hello-world\hunghv2.ts" />
     <TypeScriptCompile Include="src\environments\environment.prod.ts" />
     <TypeScriptCompile Include="src\environments\environment.ts" />
     <TypeScriptCompile Include="src\main.ts" />

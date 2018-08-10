@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
+import { Hunghv } from './hunghv2';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -16,6 +17,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./hello-world.component.scss']
 })
 export class HelloWorldComponent implements OnInit {
+  hunghvser:Hunghv;
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
@@ -45,6 +47,7 @@ export class HelloWorldComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
   constructor() { }
   ngOnInit() {
+    this.hunghvser = {hunghv0:1, hunghv1:new Date('1968-11-16T00:00:00'), hunghv2:'abc', hunghv3:'trt', hunghv4:'asj', hunghv5:'ashu'};
   }
   addEmail(control: FormControl){
      console.log(control.value);
@@ -55,5 +58,8 @@ export class HelloWorldComponent implements OnInit {
   //get multi check box
   getCheckboxes() {
     console.log(this.array.filter(x => x.checked === true).map(x => x.name));
+  }
+  onSubmit(employeeForm){
+
   }
 }

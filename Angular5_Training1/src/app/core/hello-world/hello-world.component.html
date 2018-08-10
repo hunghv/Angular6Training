@@ -1,6 +1,6 @@
-<form class="example-form">
+<form class="example-form" #employeeForm="ngForm">
+    <input type="text" name="hunghv2" #hunghv2="ngModel" [(ngModel)]="hunghvser.hunghv2">
     <mat-form-field class="example-full-width">
-
         <input matInput placeholder="Email" [formControl]="emailFormControl"
                [errorStateMatcher]="matcher">
         <mat-hint>Errors appear instantly!</mat-hint>
@@ -11,21 +11,22 @@
             Email is <strong>required</strong>
         </mat-error>
     </mat-form-field>
-</form>
-<div class="form-row">
-    <div class="form-group col-md-6">
-        <mat-form-field>
-            <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-    </div>
-    <div class="form-group col-md-6">
-        <div *ngFor="let item of array">
-            <mat-checkbox [(ngModel)]="item.checked" (change)="getCheckboxes()">{{item.name}}</mat-checkbox>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <mat-form-field>
+                <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="hunghv1" #hunghv1="ngModel" [(ngModel)]="hunghvser.hunghv1">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="form-group col-md-6">
+            <div *ngFor="let item of array">
+                <mat-checkbox (change)="getCheckboxes()">{{item.name}}</mat-checkbox>
+            </div>
         </div>
     </div>
-</div>
+</form>
+   
 <div class="form-row">
     <div class="form-group col-md-2">
         <button mat-button color="primary">Click me!</button>
