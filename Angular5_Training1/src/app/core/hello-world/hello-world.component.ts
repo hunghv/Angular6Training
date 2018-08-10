@@ -52,6 +52,7 @@ export class HelloWorldComponent implements OnInit {
   checkMe(){
     console.log(1);
   }
+  //get multi check box
   getCheckboxes() {
     console.log(this.array.filter(x => x.checked === true).map(x => x.name));
   }

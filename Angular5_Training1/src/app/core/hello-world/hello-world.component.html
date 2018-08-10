@@ -17,7 +17,13 @@
 <div *ngFor="let item of array">
     <mat-checkbox [(ngModel)]="item.checked" (change)="getCheckboxes()">{{item.name}}</mat-checkbox>
 </div>
-  
+
+<mat-form-field>
+  <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
 <button mat-button color="primary">Click me!</button>
 <button mat-raised-button color="primary" (click)="addEmail(emailFormControl)">Click me!</button>
 <button mat-flat-button color="primary" (click)="checkMe()">Click me!</button>
