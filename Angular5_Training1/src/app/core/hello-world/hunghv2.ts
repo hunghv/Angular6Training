@@ -3,6 +3,6 @@ export class Hunghv {
     hunghv1 : Date;
     hunghv2 : string;
     hunghv3 : string;
-    hunghv4 : string;
+    hunghv4 : any = {};
     hunghv5 : string;
 }

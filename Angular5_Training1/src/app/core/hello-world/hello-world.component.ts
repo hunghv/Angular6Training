@@ -18,6 +18,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class HelloWorldComponent implements OnInit {
   hunghvser:Hunghv;
+  
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
@@ -47,7 +48,7 @@ export class HelloWorldComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
   constructor() { }
   ngOnInit() {
-    this.hunghvser = {hunghv0:1, hunghv1:new Date('1968-11-16T00:00:00'), hunghv2:'abc', hunghv3:'trt', hunghv4:'asj', hunghv5:'ashu'};
+    this.hunghvser = {hunghv0:1, hunghv1:new Date('1968-11-16T00:00:00'), hunghv2:'abc', hunghv3:'hunghvhpu@gmail.com', hunghv4:[], hunghv5:'ashu'};
   }
   addEmail(control: FormControl){
      console.log(control.value);
@@ -57,9 +58,12 @@ export class HelloWorldComponent implements OnInit {
   }
   //get multi check box
   getCheckboxes() {
-    console.log(this.array.filter(x => x.checked === true).map(x => x.name));
+    
   }
   onSubmit(employeeForm){
-
+   employeeForm.form.value.hunghv4=Object.keys(this.hunghvser.hunghv4).filter((item, index) => {
+      return this.hunghvser.hunghv4[item];
+    });;
+      console.log(employeeForm.form.value)
   }
 }
