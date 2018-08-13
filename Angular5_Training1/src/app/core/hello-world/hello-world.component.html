@@ -1,93 +1,145 @@
 <form class="example-form" #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
-    <input type="text" name="hunghv2" #hunghv2="ngModel" [(ngModel)]="hunghvser.hunghv2">
-    <mat-form-field class="example-full-width">
-        <input matInput placeholder="Email" name="hunghv3" #hunghv3="ngModel" [(ngModel)]="hunghvser.hunghv3"
-               [errorStateMatcher]="matcher">
-        <mat-hint>Errors appear instantly!</mat-hint>
-        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-            Please enter a valid email address
-        </mat-error>
-        <mat-error *ngIf="emailFormControl.hasError('required')">
-            Email is <strong>required</strong>
-        </mat-error>
-    </mat-form-field>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <mat-form-field>
-                <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="hunghv1" #hunghv1="ngModel" [(ngModel)]="hunghvser.hunghv1">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-        </div>
-        <div class="form-group col-md-6">
-            <div *ngFor="let item of array">
-                <mat-checkbox name="hunghv4" #hunghv4="ngModel" [(ngModel)]="hunghvser.hunghv4[item.name]" value="item.name">{{item.name}}</mat-checkbox>
+    <mat-tab-group>
+        <mat-tab label="First">
+                <mat-progress-bar mode="determinate" [value]="hunghvser.hunghv9"></mat-progress-bar>
+                <br/>
+            <input type="text" name="hunghv2" #hunghv2="ngModel" [(ngModel)]="hunghvser.hunghv2">
+            <div class="form-row">
+                <mat-select placeholder="Favorite food" name="hunghv5" #hunghv5="ngModel" [(ngModel)]="hunghvser.hunghv5" (ngModelChange)="doSomething($event)">
+                    <mat-option *ngFor="let food of foods" [value]="food.value">
+                        {{food.viewValue}}
+                    </mat-option>
+                </mat-select>
             </div>
-        </div>
-    </div>
-    <div class="form-row">
-        <mat-select placeholder="Favorite food" name="hunghv5" #hunghv5="ngModel" [(ngModel)]="hunghvser.hunghv5" (ngModelChange)="doSomething($event)">
-            <mat-option *ngFor="let food of foods" [value]="food.value">
-                {{food.viewValue}}
-            </mat-option>
-        </mat-select>
-    </div>
-    <div class="form-row">
-        <mat-form-field>
-            <mat-select placeholder="Toppings" multiple name="hunghv5" #hunghv5="ngModel" [(ngModel)]="hunghvser.hunghv5">
-                <mat-option *ngFor="let topping of toppingList" value="topping">{{topping}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-8">
-            <button type="submit" class="btn btn-lg btn-block btn-info">
-                <i class="fa fa-floppy-o"></i> Submit
-            </button>
-        </div>
-        <div class="form-group col-md-4">
-            <button type="button" class="btn btn-lg btn-block btn-secondary">
-                <i class="fa fa-repeat"></i> Reset
-            </button>
-        </div>
-    </div>
+            <div class="form-row">
+                <mat-form-field>
+                    <mat-select placeholder="Toppings" multiple name="hunghv6" #hunghv6="ngModel" [(ngModel)]="hunghvser.hunghv6">
+                        <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </mat-tab>
+        <mat-tab label="Second">
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Email" name="hunghv3" #hunghv3="ngModel" [(ngModel)]="hunghvser.hunghv3"
+                       [errorStateMatcher]="matcher">
+                <mat-hint>Errors appear instantly!</mat-hint>
+                <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                    Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="emailFormControl.hasError('required')">
+                    Email is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </mat-tab>
+        <mat-tab label="Third">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <mat-form-field>
+                        <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="hunghv1" #hunghv1="ngModel" [(ngModel)]="hunghvser.hunghv1">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="form-group col-md-6">
+                    <div *ngFor="let item of array">
+                        <mat-checkbox name="hunghv4" #hunghv4="ngModel" [(ngModel)]="hunghvser.hunghv4[item.name]" value="item.name">{{item.name}}</mat-checkbox>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <button type="submit" class="btn btn-lg btn-block btn-info">
+                        <i class="fa fa-floppy-o"></i> Submit
+                    </button>
+                </div>
+                <div class="form-group col-md-4">
+                    <button type="button" class="btn btn-lg btn-block btn-secondary">
+                        <i class="fa fa-repeat"></i> Reset
+                    </button>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="four">
+            <div class="form-row">
+                <div class="form-group col-md-2">
+                    <button mat-button color="primary">Click me!</button>
+                </div>
+                <div class="form-group col-md-2">
+                    <button mat-raised-button color="accent">Click me!</button>
+                </div>
+                <div class="form-group col-md-2">
+                    <button mat-flat-button color="primary">Click me!</button>
+                </div>
+                <div class="form-group col-md-2">
+                    <button mat-stroked-button color="accent">Click me!</button>
+                </div>
+                <div class="form-group col-md-2">
+                    <button mat-fab color="primary">Click me!</button>
+                </div>
+                <div class="form-group col-md-2">
+                    <button mat-mini-fab color="accent">Click me!</button>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="five">
+            <div class="form-row">
+                <table class="table table-sm table-hover">
+                    <tr *ngFor="let hello of hellos">
+                        <td>{{hello.firstName}} - {{hello.lastName}}</td>
+                        <td>{{hello.empCode}}</td>
+                        <td>
+                            <a class="btn">
+                                <i class="fa fa-pencil-square-o"></i>
+                            </a>
+                            <a class="btn text-danger" (click)="onDelete(hello.id)">
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </mat-tab>
+        <mat-tab label="Six" style="padding-top: 50px">
+            <p>
+                <span [(matBadge)]="hunghvser.hunghv7" matBadgeOverlap="false">
+                    Text with a badge
+                </span>
+            </p>
 
-    <div>----------------------------------------------------------</div>
+            <p>
+                Button with a badge on the left
+                <button mat-raised-button color="primary"
+                        matBadge="8" matBadgePosition="before" matBadgeColor="accent">
+                    Action
+                </button>
+            </p>
+
+            <p>
+                Icon with a badge
+                <mat-icon matBadge="15" matBadgeColor="warn">home</mat-icon>
+            </p>
+        </mat-tab>
+        <mat-tab label="seven">
+                
+            <mat-form-field class="example-chip-list">
+                <mat-chip-list #hunghv8   >
+                    <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable"
+                              [removable]="removable" (removed)="remove(fruit)" (click)="changeSelected('s', fruit.name)">
+                        {{fruit.name}}
+                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                    </mat-chip>
+                    <input placeholder="New fruit..."
+                           [matChipInputFor]="hunghv8"
+                           [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                           [matChipInputAddOnBlur]="addOnBlur"
+                           (matChipInputTokenEnd)="add($event)">
+                </mat-chip-list>
+            </mat-form-field>
+        </mat-tab>
+    </mat-tab-group>
+
 </form>
-<div class="form-row">
-    <table class="table table-sm table-hover">
-        <tr *ngFor="let hello of hellos">
-            <td>{{hello.firstName}} - {{hello.lastName}}</td>
-            <td>{{hello.empCode}}</td>
-            <td>
-                <a class="btn">
-                    <i class="fa fa-pencil-square-o"></i>
-                </a>
-                <a class="btn text-danger" (click)="onDelete(hello.id)">
-                    <i class="fa fa-trash-o"></i>
-                </a>
-            </td>
-        </tr>
-    </table>
-</div>
-<div class="form-row">
-    <div class="form-group col-md-2">
-        <button mat-button color="primary">Click me!</button>
-    </div>
-    <div class="form-group col-md-2">
-        <button mat-raised-button color="accent">Click me!</button>
-    </div>
-    <div class="form-group col-md-2">
-        <button mat-flat-button color="primary">Click me!</button>
-    </div>
-    <div class="form-group col-md-2">
-        <button mat-stroked-button color="accent">Click me!</button>
-    </div>
-    <div class="form-group col-md-2">
-        <button mat-fab color="primary">Click me!</button>
-    </div>
-    <div class="form-group col-md-2">
-        <button mat-mini-fab color="accent">Click me!</button>
-    </div>
-</div>
+
+
 
