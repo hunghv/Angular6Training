@@ -11,11 +11,11 @@ import { Hello } from './hello';
 export class HelloService {
     HelloList: Hello[];
     private serviceUrl = 'http://localhost:51571/api/Admin/Employee/GetAllemployes';
-  
+
     constructor(private http: HttpClient) { }
-    
-    getHelloList(){
-      return this.http.get<Hello[]>(this.serviceUrl);
+
+    getHelloList() {
+        return this.http.get<Hello[]>(this.serviceUrl);
     }
-    
+
 }

@@ -8,3 +8,7 @@ export class Hello {
     constructor() { 
     }
 }
+export class Food {
+    value: string;
+    viewValue: string;
+}

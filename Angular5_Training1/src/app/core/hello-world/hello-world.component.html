@@ -26,6 +26,20 @@
         </div>
     </div>
     <div class="form-row">
+        <mat-select placeholder="Favorite food" name="hunghv5" #hunghv5="ngModel" [(ngModel)]="hunghvser.hunghv5" (ngModelChange)="doSomething($event)">
+            <mat-option *ngFor="let food of foods" [value]="food.value">
+                {{food.viewValue}}
+            </mat-option>
+        </mat-select>
+    </div>
+    <div class="form-row">
+        <mat-form-field>
+            <mat-select placeholder="Toppings" multiple name="hunghv5" #hunghv5="ngModel" [(ngModel)]="hunghvser.hunghv5">
+                <mat-option *ngFor="let topping of toppingList" value="topping">{{topping}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="form-row">
         <div class="form-group col-md-8">
             <button type="submit" class="btn btn-lg btn-block btn-info">
                 <i class="fa fa-floppy-o"></i> Submit
@@ -37,8 +51,10 @@
             </button>
         </div>
     </div>
+
+    <div>----------------------------------------------------------</div>
 </form>
-<div class="form-row">  
+<div class="form-row">
     <table class="table table-sm table-hover">
         <tr *ngFor="let hello of hellos">
             <td>{{hello.firstName}} - {{hello.lastName}}</td>
@@ -59,10 +75,10 @@
         <button mat-button color="primary">Click me!</button>
     </div>
     <div class="form-group col-md-2">
-        <button mat-raised-button color="accent" (click)="addEmail(emailFormControl)">Click me!</button>
+        <button mat-raised-button color="accent">Click me!</button>
     </div>
     <div class="form-group col-md-2">
-        <button mat-flat-button color="primary" (click)="checkMe()">Click me!</button>
+        <button mat-flat-button color="primary">Click me!</button>
     </div>
     <div class="form-group col-md-2">
         <button mat-stroked-button color="accent">Click me!</button>
