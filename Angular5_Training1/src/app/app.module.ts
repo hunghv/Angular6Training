@@ -47,12 +47,15 @@ import {
 } from '@angular/material';
 import { AppComponent } from './app.component';
 import { HelloWorldComponent } from './core/hello-world/hello-world.component';
+import { Dialog1Component } from './core/Dialog/dialog1/dialog1.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        HelloWorldComponent
+        HelloWorldComponent,
+        Dialog1Component
     ],
+    entryComponents: [HelloWorldComponent, Dialog1Component],
     exports: [
         CdkTableModule,
         CdkTreeModule,

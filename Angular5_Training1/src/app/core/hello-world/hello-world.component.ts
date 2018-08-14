@@ -7,9 +7,10 @@ import { HelloService } from './../services/hello.service';
 import {Food} from './../services/food';
 import {Fruit} from './../services/food';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
-import {MatChipInputEvent} from '@angular/material';
+import { MatChipInputEvent, MatDialog } from '@angular/material';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
+import { Dialog1Component } from './../Dialog/dialog1/dialog1.component';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -26,6 +27,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class HelloWorldComponent implements OnInit {
     hunghvser: Hunghv;
+    animal: string;
+    name: string;
     visible = true;
     selectable = true;
     removable = true;
@@ -35,7 +38,14 @@ export class HelloWorldComponent implements OnInit {
         Validators.required,
         Validators.email,
     ]);
-    toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
+    toppingList: topting[] =
+    [{ text: 'Extra cheese', value: 1 },
+        { text: 'Mushroom', value: 2 },
+        { text: 'Onion', value: 3 },
+        { text: 'Pepperoni', value: 4 },
+        { text: 'Sausage', value: 5 },
+        { text: 'Tomato', value: 6 }];
+
     foods: Food[] = [
         { value: 'steak-0', viewValue: 'Steak' },
         { value: 'pizza-1', viewValue: 'Pizza' },
@@ -71,7 +81,7 @@ export class HelloWorldComponent implements OnInit {
 
     hellos: Hello[];
     matcher = new MyErrorStateMatcher();
-    constructor(private helloservices: HelloService) { }
+    constructor(private helloservices: HelloService, public dialog: MatDialog) { }
     ngOnInit(): void {
         this.hunghvser = { hunghv0: 1, hunghv1: new Date('1968-11-16T00:00:00'), hunghv2: 'abc', hunghv3: 'hunghvhpu@gmail.com', hunghv4: [], hunghv5: 'ashu', hunghv6: [], hunghv7: 2, hunghv8: [], hunghv9: 0 };
         this.helloservices
@@ -79,7 +89,18 @@ export class HelloWorldComponent implements OnInit {
             .subscribe((data: Hello[]) => {
                 this.hellos = data;
             });
-            this.startTimer();
+        this.startTimer();
+    }
+    openDialog(): void {
+        const dialogRef = this.dialog.open(Dialog1Component, {
+            width: '1000px',
+            data: { name: this.name, animal: this.animal }
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            console.log('The dialog was closed');
+            this.animal = result;
+        });
     }
     addEmail(control: FormControl) {
         console.log(control.value);
@@ -100,13 +121,12 @@ export class HelloWorldComponent implements OnInit {
     interval;
     startTimer() {
         this.interval = setInterval(() => {
-          this.hunghvser.hunghv9=this.hunghvser.hunghv9+1;
+            this.hunghvser.hunghv9 = this.hunghvser.hunghv9 + 1;
             if (this.hunghvser.hunghv9 <= 100) {
-              console.log(this.hunghvser.hunghv9);
             } else {
-              this.hunghvser.hunghv9= 0;
+                this.hunghvser.hunghv9 = 0;
             }
-        }, 100)
+        }, 1000)
     }
     pauseTimer() {
         clearInterval(this.interval);
@@ -149,4 +169,9 @@ export class HelloWorldComponent implements OnInit {
         console.log("this. selectedChips " + this.selectedChips);
 
     }
+}
+
+export class topting {
+    text: string;
+    value: number;
 }

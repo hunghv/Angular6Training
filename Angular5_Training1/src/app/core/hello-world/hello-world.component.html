@@ -1,8 +1,9 @@
+<mat-progress-bar mode="determinate" [value]="hunghvser.hunghv9"></mat-progress-bar>
+<br/>
 <form class="example-form" #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
     <mat-tab-group>
         <mat-tab label="First">
-                <mat-progress-bar mode="determinate" [value]="hunghvser.hunghv9"></mat-progress-bar>
-                <br/>
+               
             <input type="text" name="hunghv2" #hunghv2="ngModel" [(ngModel)]="hunghvser.hunghv2">
             <div class="form-row">
                 <mat-select placeholder="Favorite food" name="hunghv5" #hunghv5="ngModel" [(ngModel)]="hunghvser.hunghv5" (ngModelChange)="doSomething($event)">
@@ -14,9 +15,26 @@
             <div class="form-row">
                 <mat-form-field>
                     <mat-select placeholder="Toppings" multiple name="hunghv6" #hunghv6="ngModel" [(ngModel)]="hunghvser.hunghv6">
-                        <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+                        <mat-option *ngFor="let topping of toppingList" [value]="topping.value">
+                            {{topping.text}}
+                        </mat-option>
                     </mat-select>
                 </mat-form-field>
+            </div>
+            <div class="form-row">
+                <ol>
+                    <li>
+                      <mat-form-field>
+                        <input matInput [(ngModel)]="name" placeholder="What's your name?">
+                      </mat-form-field>
+                    </li>
+                    <li>
+                      <button mat-raised-button (click)="openDialog()">Pick one</button>
+                    </li>
+                    <li *ngIf="animal">
+                      You chose: <i>{{animal}}</i>
+                    </li>
+                  </ol>
             </div>
         </mat-tab>
         <mat-tab label="Second">
@@ -36,7 +54,7 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <mat-form-field>
-                        <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="hunghv1" #hunghv1="ngModel" [(ngModel)]="hunghvser.hunghv1">
+                        <input matInput [matDatepicker]="picker" placeholder="Choose a date"  name="hunghv1" #hunghv1="ngModel" [(ngModel)]="hunghvser.hunghv1">
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                     </mat-form-field>
@@ -47,14 +65,14 @@
                     </div>
                 </div>
             </div>
-            <div class="form-row">
+            <div class="form-row" >
                 <div class="form-group col-md-8">
-                    <button type="submit" class="btn btn-lg btn-block btn-info">
+                    <button type="submit" class="btn btn-lg btn-block btn-info" style="max-width: 200px; " matTooltipPosition="right" matTooltip="hunghv1">
                         <i class="fa fa-floppy-o"></i> Submit
                     </button>
                 </div>
                 <div class="form-group col-md-4">
-                    <button type="button" class="btn btn-lg btn-block btn-secondary">
+                    <button type="button" class="btn btn-lg btn-block btn-secondary" style="max-width: 200px;" matTooltipPosition="above" matTooltip="hunghv2">
                         <i class="fa fa-repeat"></i> Reset
                     </button>
                 </div>
@@ -137,6 +155,7 @@
                 </mat-chip-list>
             </mat-form-field>
         </mat-tab>
+
     </mat-tab-group>
 
 </form>

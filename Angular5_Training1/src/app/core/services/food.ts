@@ -5,3 +5,8 @@ export class Food {
 export class Fruit {
     name: string;
 }
+export interface DialogData {
+    animal: string;
+    name: string;
+}
+  

@@ -9600,6 +9600,14 @@
     <None Include="package-lock.json" />
     <None Include="package.json" />
     <None Include="README.md" />
+    <None Include="Save File\Angular 5.docx" />
+    <None Include="Save File\Flex Box.docx" />
+    <None Include="Save File\L2SMobileHybrid_AccountManagement_v2.2.docx" />
+    <None Include="Save File\L2SMobileHybrid_Software Requirement Specification v0.1.docx" />
+    <None Include="Save File\L2SMobileHybrid_Welcome_v2.0.docx" />
+    <None Include="Save File\phím tắt trong Visual code.docx" />
+    <None Include="Save File\Scss.docx" />
+    <None Include="Save File\Training_Angular5.odt" />
     <None Include="src\app\app.component.scss" />
     <None Include="src\app\core\hello-world\hello-world.component.scss" />
     <None Include="src\assets\.gitkeep" />
