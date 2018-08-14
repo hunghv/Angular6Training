@@ -9,4 +9,5 @@ export class Hunghv {
     hunghv7: number;
     hunghv8:any={};
     hunghv9:number;
+    hunghv10:string;
 }

@@ -28,7 +28,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class HelloWorldComponent implements OnInit {
     hunghvser: Hunghv;
     animal: string;
-    name: string;
+    name1: string;
     visible = true;
     selectable = true;
     removable = true;
@@ -83,7 +83,19 @@ export class HelloWorldComponent implements OnInit {
     matcher = new MyErrorStateMatcher();
     constructor(private helloservices: HelloService, public dialog: MatDialog) { }
     ngOnInit(): void {
-        this.hunghvser = { hunghv0: 1, hunghv1: new Date('1968-11-16T00:00:00'), hunghv2: 'abc', hunghv3: 'hunghvhpu@gmail.com', hunghv4: [], hunghv5: 'ashu', hunghv6: [], hunghv7: 2, hunghv8: [], hunghv9: 0 };
+        this.hunghvser = {
+            hunghv0: 1,
+            hunghv1: new Date('1968-11-16T00:00:00'),
+            hunghv2: 'abc',
+            hunghv3: 'hunghvhpu@gmail.com',
+            hunghv4: [],
+            hunghv5: 'ashu',
+            hunghv6: [],
+            hunghv7: 2,
+            hunghv8: [],
+            hunghv9: 0,
+            hunghv10: ""
+        };
         this.helloservices
             .getHelloList()
             .subscribe((data: Hello[]) => {
@@ -92,9 +104,10 @@ export class HelloWorldComponent implements OnInit {
         this.startTimer();
     }
     openDialog(): void {
+        debugger
         const dialogRef = this.dialog.open(Dialog1Component, {
             width: '1000px',
-            data: { name: this.name, animal: this.animal }
+            data: { name: this.hunghvser.hunghv10, animal: this.animal }
         });
 
         dialogRef.afterClosed().subscribe(result => {
