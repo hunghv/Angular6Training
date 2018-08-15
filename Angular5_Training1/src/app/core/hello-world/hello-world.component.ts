@@ -2,16 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { Hunghv } from './hunghv2';
-import {Hello}  from './../services/hello';
-import { HelloService } from './../services/hello.service';
-import {Food} from './../services/food';
-import {Fruit} from './../services/food';
+import {Hello}  from '../services/hello';
+import { HelloService } from '../services/hello.service';
+import {Food} from '../services/food';
+import {Fruit} from '../services/food';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import { MatChipInputEvent, MatDialog } from '@angular/material';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
-import { Dialog1Component } from './../Dialog/dialog1/dialog1.component';
-
+import { Dialog1Component } from '../Dialog/dialog1/dialog1.component';
+import { RequestOptions } from '@angular/http';
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
     isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -104,7 +104,7 @@ export class HelloWorldComponent implements OnInit {
         this.startTimer();
     }
     openDialog(): void {
-        debugger
+        
         const dialogRef = this.dialog.open(Dialog1Component, {
             width: '1000px',
             data: { name: this.hunghvser.hunghv10, animal: this.animal }
@@ -144,7 +144,27 @@ export class HelloWorldComponent implements OnInit {
     pauseTimer() {
         clearInterval(this.interval);
     }
-
+    fileChange(event) {
+        let fileList: FileList = event.target.files;
+        if(fileList.length > 0) {
+            let file: File = fileList[0];
+            let formData:FormData = new FormData();
+            formData.append('uploadFile', file, file.name);
+            let headers = new Headers();
+            /** In Angular 5, including the header Content-Type can invalidate your request */
+            headers.append('Content-Type', 'multipart/form-data');
+            headers.append('Accept', 'application/json');
+            console.log(file);
+            //let options = new RequestOptions({ headers: headers });
+            // this.http.post(`${this.apiEndPoint}`, formData, options)
+            //     .map(res => res.json())
+            //     .catch(error => Observable.throw(error))
+            //     .subscribe(
+            //         data => console.log('success'),
+            //         error => console.log(error)
+            //     )
+        }
+    }
     doSomething(event: Event) {
         console.log(event);
     }

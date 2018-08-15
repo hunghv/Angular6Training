@@ -4864,7 +4864,7 @@
     <None Include="node_modules\node-sass\src\libsass\src\cssize.cpp" />
     <None Include="node_modules\node-sass\src\libsass\src\cssize.hpp" />
     <None Include="node_modules\node-sass\src\libsass\src\debug.hpp" />
-    <None Include="node_modules\node-sass\src\libsass\src\debugger.hpp" />
+    <None Include="node_modules\node-sass\src\libsass\src\.hpp" />
     <None Include="node_modules\node-sass\src\libsass\src\emitter.cpp" />
     <None Include="node_modules\node-sass\src\libsass\src\emitter.hpp" />
     <None Include="node_modules\node-sass\src\libsass\src\environment.cpp" />
@@ -23514,12 +23514,12 @@
     <Content Include="node_modules\protractor\built\clientsidescripts.js" />
     <Content Include="node_modules\protractor\built\config.js" />
     <Content Include="node_modules\protractor\built\configParser.js" />
-    <Content Include="node_modules\protractor\built\debugger.js" />
-    <Content Include="node_modules\protractor\built\debugger\clients\explorer.js" />
-    <Content Include="node_modules\protractor\built\debugger\clients\wddebugger.js" />
-    <Content Include="node_modules\protractor\built\debugger\debuggerCommons.js" />
-    <Content Include="node_modules\protractor\built\debugger\modes\commandRepl.js" />
-    <Content Include="node_modules\protractor\built\debugger\modes\debuggerRepl.js" />
+    <Content Include="node_modules\protractor\built\.js" />
+    <Content Include="node_modules\protractor\built\\clients\explorer.js" />
+    <Content Include="node_modules\protractor\built\\clients\wd.js" />
+    <Content Include="node_modules\protractor\built\\Commons.js" />
+    <Content Include="node_modules\protractor\built\\modes\commandRepl.js" />
+    <Content Include="node_modules\protractor\built\\modes\Repl.js" />
     <Content Include="node_modules\protractor\built\driverProviders\attachSession.js" />
     <Content Include="node_modules\protractor\built\driverProviders\browserStack.js" />
     <Content Include="node_modules\protractor\built\driverProviders\direct.js" />
@@ -27931,7 +27931,7 @@
     <Content Include="node_modules\tslint\lib\rules\noConsecutiveBlankLinesRule.js" />
     <Content Include="node_modules\tslint\lib\rules\noConsoleRule.js" />
     <Content Include="node_modules\tslint\lib\rules\noConstructRule.js" />
-    <Content Include="node_modules\tslint\lib\rules\noDebuggerRule.js" />
+    <Content Include="node_modules\tslint\lib\rules\noRule.js" />
     <Content Include="node_modules\tslint\lib\rules\noDefaultExportRule.js" />
     <Content Include="node_modules\tslint\lib\rules\noDuplicateImportsRule.js" />
     <Content Include="node_modules\tslint\lib\rules\noDuplicateSuperRule.js" />
@@ -33154,7 +33154,7 @@
     <TypeScriptCompile Include="node_modules\protractor\built\cli.d.ts" />
     <TypeScriptCompile Include="node_modules\protractor\built\config.d.ts" />
     <TypeScriptCompile Include="node_modules\protractor\built\configParser.d.ts" />
-    <TypeScriptCompile Include="node_modules\protractor\built\debugger.d.ts" />
+    <TypeScriptCompile Include="node_modules\protractor\built\.d.ts" />
     <TypeScriptCompile Include="node_modules\protractor\built\driverProviders\attachSession.d.ts" />
     <TypeScriptCompile Include="node_modules\protractor\built\driverProviders\browserStack.d.ts" />
     <TypeScriptCompile Include="node_modules\protractor\built\driverProviders\direct.d.ts" />
@@ -35124,7 +35124,7 @@
     <TypeScriptCompile Include="node_modules\tslint\lib\rules\noConsecutiveBlankLinesRule.d.ts" />
     <TypeScriptCompile Include="node_modules\tslint\lib\rules\noConsoleRule.d.ts" />
     <TypeScriptCompile Include="node_modules\tslint\lib\rules\noConstructRule.d.ts" />
-    <TypeScriptCompile Include="node_modules\tslint\lib\rules\noDebuggerRule.d.ts" />
+    <TypeScriptCompile Include="node_modules\tslint\lib\rules\noRule.d.ts" />
     <TypeScriptCompile Include="node_modules\tslint\lib\rules\noDefaultExportRule.d.ts" />
     <TypeScriptCompile Include="node_modules\tslint\lib\rules\noDuplicateImportsRule.d.ts" />
     <TypeScriptCompile Include="node_modules\tslint\lib\rules\noDuplicateSuperRule.d.ts" />

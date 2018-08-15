@@ -48,12 +48,14 @@ import {
 import { AppComponent } from './app.component';
 import { HelloWorldComponent } from './core/hello-world/hello-world.component';
 import { Dialog1Component } from './core/Dialog/dialog1/dialog1.component';
+import { FileUploaderComponent } from './core/file-uploader/file-uploader.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         HelloWorldComponent,
-        Dialog1Component
+        Dialog1Component,
+        FileUploaderComponent
     ],
     entryComponents: [HelloWorldComponent, Dialog1Component],
     exports: [

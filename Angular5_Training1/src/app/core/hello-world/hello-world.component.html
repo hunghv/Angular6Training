@@ -3,8 +3,7 @@
 <form class="example-form" #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
     <mat-tab-group>
         <mat-tab label="First">
-               
-            <input type="text" name="hunghv2" #hunghv2="ngModel" [(ngModel)]="hunghvser.hunghv2">
+            <app-file-uploader></app-file-uploader>
             <div class="form-row">
                 <mat-select placeholder="Favorite food" name="hunghv5" #hunghv5="ngModel" [(ngModel)]="hunghvser.hunghv5" (ngModelChange)="doSomething($event)">
                     <mat-option *ngFor="let food of foods" [value]="food.value">
